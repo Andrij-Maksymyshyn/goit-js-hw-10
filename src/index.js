@@ -24,6 +24,10 @@ input.addEventListener('input', debounce(() => {
 
 
 function showCountry(data) {
+
+    countryList.innerHTML = '';
+    countryInfo.innerHTML = '';
+
     if (data.length > 10) {
              return Notify.info("Too many matches found. Please enter a more specific name.");
             }
@@ -38,11 +42,10 @@ function showCountry(data) {
         })
         .join("");
 
-       return countryList.innerHTML = markupCountries;
-
-    } else {        
-    
-    const markupCountry = data
+         return countryList.innerHTML = markupCountries;
+       
+    } else {           
+        const markupCountry = data
         .map((state) => {
             return `<li>
             <div class="union">
@@ -55,7 +58,7 @@ function showCountry(data) {
             })
         .join("");
        
-      return  countryInfo.innerHTML = markupCountry;
+          return  countryInfo.innerHTML = markupCountry;
     }        
                  
 }
